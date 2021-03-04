@@ -55,3 +55,7 @@ let getReviews = (propertyID) => {
   let db = mongoose.connection;
   return Reviews.findOne({property: propertyID})
 }
+
+module.exports.saveProperty = saveProperty;
+module.exports.saveReview = saveReview;
+module.exports.getReviews = getReviews;
