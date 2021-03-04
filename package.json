@@ -1,17 +1,44 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "rpt26-fec-dewitt-airbnb-service-reviews",
+  "description": "> Project description",
   "author": "",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server.js",
+    "build": "webpack",
+    "babel": "npx babel ./client/src/index.jsx --out-dir ./public --presets @babel/preset-react --source-maps inline --watch"
   },
   "dependencies": {
+    "html-webpack-plugin": "^5.2.0",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.18",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.2.2",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt26-fec-sojourner/melanie-service-reviews.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rpt26-fec-sojourner/melanie-service-reviews/issues"
+  },
+  "homepage": "https://github.com/rpt26-fec-sojourner/melanie-service-reviews#readme"
 }
