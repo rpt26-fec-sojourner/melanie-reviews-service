@@ -1,24 +1,31 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/spacebnb');
+mongoose.connect('mongodb://localhost/spacebnb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useCreateIndex', true);
 
 
 let reviewsSchema = mongoose.Schema({
-    property: Number,
+    propertyName: {unique: true, type: String},
     reviews: []
   }
-})
+)
 
 let Reviews = mongoose.model('Reviews', reviewsSchema);
 
-let saveProperty = (propertyObj) => {
+let saveProperty = (propertyNum) => {
+  // mongoose.connect('mongodb://localhost/spacebnb', { useNewUrlParser: true, useUnifiedTopology: true });
+  // mongoose.set('useCreateIndex', true);
+
+  console.log('mongo propertyObj: ', propertyNum)
   let property = new Reviews({
-    property = propertyObj.property,
-    reviews = []
+    propertyName: propertyNum,
+    reviews: []
   })
+  console.log('property:', property)
   property.save()
-  .then(result => {
-    mongoose.connection.close();
-  })
+
+  // .then(result => {
+  //   mongoose.connection.close();
+  // })
 }
 
 let saveReview = (reviewObj) => {
