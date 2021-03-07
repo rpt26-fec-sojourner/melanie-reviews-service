@@ -34,3 +34,4 @@ var sentenceGenerator = function(num) {
   }
 }
 
+module.exports.sentenceGenerator = sentenceGenerator;
