@@ -47,13 +47,15 @@ let saveReview = (reviewObj) => {
       value: reviewObj.stars.value
     }
   };
+  console.log('object saved: ', reviewObj.property);
   let db = mongoose.connection;
-  db.Reviews.update(
-    {property: reviewObj.property},
-    {$push: {reviews: review}}
+  Reviews.updateOne(
+    {"propertyName": reviewObj.property},
+    {$push: {"reviews": review}}
   )
   .then(result => {
-    mongoose.connection.close();
+    console.log(result)
+    // mongoose.connection.close();
   })
 }
 

@@ -88,8 +88,7 @@ var createReview = function() {
   return review;
 }
 
-// console.log(createReview());
-
-// for (var i = 0; i < 1000; i++)
-var sampledata = createReview();
-database.saveReview(sampledata);
+for (var i = 0; i < 1000; i++) {
+  var sampledata = createReview();
+  database.saveReview(sampledata);
+}
