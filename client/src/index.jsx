@@ -10,16 +10,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.getReviews(5);
-    // seedProperties();
-    // $.ajax({
-    //   type: "POST",
-    //   url: `http://localhost:1969/reviews/${6}`,
-    //   success:(data)=>{
-    //     // data = JSON.parse(data);
-    //     console.log('post data:', data);
-    //   }
-    // })
+    // using sample property number for now, will change
+    this.getReviews(5);
   }
 
   getReviews(property) {

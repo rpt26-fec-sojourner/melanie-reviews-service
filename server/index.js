@@ -15,10 +15,11 @@ app.listen(port, () => {
 
 
 app.get(`/reviews/:property`, function(req, res){
-  // req.params.property = string number
-  database.getReviews(req.params.property, (err, result) => {
-    res.send(result);
-  });
+  console.log('server called')
+  database.getReviews(req.params.property);
+    // (err, result) => {
+    res.end();
+  // });
   // res.send();
 })
 
