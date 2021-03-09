@@ -16,8 +16,10 @@ app.listen(port, () => {
 
 app.get(`/reviews/:property`, function(req, res){
   // req.params.property = string number
-  database.getReviews(Number(req.params.property));
-  res.end();
+  database.getReviews(req.params.property, (err, result) => {
+    res.send(result);
+  });
+  // res.send();
 })
 
 app.post(`/reviews/:property`, function(req, res) {

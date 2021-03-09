@@ -59,10 +59,14 @@ let saveReview = (reviewObj) => {
   })
 }
 
-let getReviews = (propertyID) => {
+let getReviews = (propertyID, cb) => {
   mongoose.connect('mongodb://localhost/spacebnb');
   let db = mongoose.connection;
-  return Reviews.findOne({property: propertyID})
+  if (err) {
+    cb(err);
+  } else {
+    cb(null, Reviews.findOne({"propertyName": propertyID}))
+  }
 }
 
 module.exports.saveProperty = saveProperty;
