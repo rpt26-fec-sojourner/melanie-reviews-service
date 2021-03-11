@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-// import seedProperties from './components/seedProperties.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      property: 1,
+      reviews: []
+    };
   }
 
   componentDidMount() {
     // using sample property number for now, will change
+    var propertyNum = window.location.href.slice(22);
+    this.state.property = propertyNum;
+    // this.getReviews(propertyNum);
     this.getReviews(5);
   }
 
@@ -19,8 +25,10 @@ class App extends React.Component {
       type: "GET",
       url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
-        // data = JSON.parse(data);
         console.log('data:', data);
+        this.setState({
+          reviews:data
+        })
       }
     })
   }
@@ -30,6 +38,7 @@ class App extends React.Component {
     return (
       <div>
         hello world
+      <DisplayReviews reviews={this.state.reviews}/>
       </div>
     )
   }

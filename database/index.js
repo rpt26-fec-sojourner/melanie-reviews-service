@@ -63,7 +63,8 @@ let getReviews = (propertyID) => {
   console.log('db called')
   mongoose.connect('mongodb://localhost/spacebnb');
   let db = mongoose.connection;
-  console.log(Reviews.findOne({"propertyName": propertyID}))
+  let result = Reviews.find({propertyName: propertyID});
+  return result;
   // return Reviews.findOne({"propertyName": propertyID});
 }
 

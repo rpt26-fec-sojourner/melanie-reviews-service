@@ -16,15 +16,11 @@ app.listen(port, () => {
 
 app.get(`/reviews/:property`, function(req, res){
   console.log('server called')
-  database.getReviews(req.params.property);
-    // (err, result) => {
-    res.end();
-  // });
-  // res.send();
+  database.getReviews(req.params.property)
+  .then((data) => {res.send(data[0].reviews)})
 })
 
 app.post(`/reviews/:property`, function(req, res) {
-
   database.saveProperty(req.params.property)
   res.send(req.params.property);
 })

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   watch: true,
   // mode: 'none',
-  entry: __dirname + '/client/src/index.jsx',
+  entry: __dirname + '/client/src/App.jsx',
   module: {
     rules: [
       {
