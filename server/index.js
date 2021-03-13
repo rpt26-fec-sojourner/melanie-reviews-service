@@ -31,22 +31,30 @@ app.post(`/reviews/:property`, function(req, res) {
 
 app.get(`/average/:property`, function(req, res) {
   console.log('get average called');
-  res.send('get average called successfully');
+  var property = req.params.property;
+  console.log(stars)
+  res.send({
+    stars: stars[property].totalAverage,
+    total: stars[property].totalReviews
+  });
 })
 
 app.get(`/stars/:property`, function(req, res) {
   console.log('get stars called');
-  res.send('get stars called successfully');
+  var property = req.params.property;
+  res.send(
+    stars[property].ratings
+  );
 })
 
 var collectStars = function(property, starData) {
-  if (!stars[property]) {
+  // if (!stars[property]) {
     stars[property] = {
       ratings: {},
       totalAverage: null,
       totalReviews: null
     }
-  }
+  // }
   var cleanlinessArray = [];
   var communicationArray = [];
   var checkinArray = [];
@@ -86,5 +94,5 @@ var collectStars = function(property, starData) {
     stars[property].ratings.value
   ]) * 10) / 10;
   stars[property].totalReviews = starData.length;
-  console.log(stars)
+  // console.log(stars)
 }

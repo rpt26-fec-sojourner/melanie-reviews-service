@@ -17,9 +17,12 @@ class App extends React.Component {
     var propertyNum = window.location.href.slice(23);
     this.state.property = propertyNum;
     // this.getReviews(toString(propertyNum));
-    this.getReviews(6);
-    this.testAPIaverage(6);
-    this.testAPIstars(6);
+    this.getReviews(6)
+    // .then(() => {
+      // this.testAPIaverage(6);
+      // this.testAPIstars(6);
+    // })
+
   }
 
   getReviews(property) {
@@ -28,6 +31,8 @@ class App extends React.Component {
       url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
         console.log('data:', data);
+        this.testAPIaverage(6);
+        this.testAPIstars(6);
         this.setState({
           reviews:data
         })
