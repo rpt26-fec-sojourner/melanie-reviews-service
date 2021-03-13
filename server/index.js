@@ -52,5 +52,4 @@ app.get(`/stars/:property`, function(req, res) {
 //       average: null,
 //       total: 0
 //     };
-
 // }
