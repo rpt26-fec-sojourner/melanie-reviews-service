@@ -11,9 +11,7 @@ app.listen(port, () => {
   console.log(`listening at port ${port}`);
 });
 
-var stars = {
-  // 5: {ratings: {} , average: , total: 0}
-};
+var stars = {};
 
 app.get(`/reviews/:property`, function(req, res){
   console.log('server called');
@@ -48,13 +46,12 @@ app.get(`/stars/:property`, function(req, res) {
 })
 
 var collectStars = function(property, starData) {
-  // if (!stars[property]) {
     stars[property] = {
       ratings: {},
       totalAverage: null,
       totalReviews: null
     }
-  // }
+
   var cleanlinessArray = [];
   var communicationArray = [];
   var checkinArray = [];
@@ -70,6 +67,7 @@ var collectStars = function(property, starData) {
     locationArray.push(starData[i].stars.location);
     valueArray.push(starData[i].stars.value);
   }
+
   var findAverage = function(array) {
     var added = 0;
     for (var j = 0; j < array.length; j++) {
@@ -94,5 +92,4 @@ var collectStars = function(property, starData) {
     stars[property].ratings.value
   ]) * 10) / 10;
   stars[property].totalReviews = starData.length;
-  // console.log(stars)
 }

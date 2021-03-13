@@ -24,7 +24,7 @@ var randomProperty = function() {
 }
 
 // Randomly assign a reviewer's name to the review
-var randomName = function(max) {
+var randomName = function() {
   return random();
 }
 

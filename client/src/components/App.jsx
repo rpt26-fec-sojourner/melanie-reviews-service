@@ -18,11 +18,6 @@ class App extends React.Component {
     this.state.property = propertyNum;
     // this.getReviews(toString(propertyNum));
     this.getReviews(6)
-    // .then(() => {
-      // this.testAPIaverage(6);
-      // this.testAPIstars(6);
-    // })
-
   }
 
   getReviews(property) {
