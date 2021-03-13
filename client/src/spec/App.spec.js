@@ -23,8 +23,8 @@ describe('unit tests', () => {
   // });
   it ('needs to do a thing', () => {
     const wrapper = shallow(<App />);
-    const text = wrapper.find('p').text();
-    expect(text).toEqual('hello world');
+    const text = wrapper.find('.second').text();
+    expect(text).toEqual('yo');
   })
   // it ('needs to do another thing')
 });

@@ -17,9 +17,9 @@ class App extends React.Component {
     var propertyNum = window.location.href.slice(23);
     this.state.property = propertyNum;
     // this.getReviews(toString(propertyNum));
-    this.getReviews(5);
-    this.testAPIaverage(5);
-    this.testAPIstars(5);
+    this.getReviews(6);
+    this.testAPIaverage(6);
+    this.testAPIstars(6);
   }
 
   getReviews(property) {
@@ -60,7 +60,7 @@ class App extends React.Component {
     return (
       <div>
         <p id="testrender">hello world</p>
-        {/* <p>yo</p> */}
+        <p className = "second">yo</p>
       {/* <DisplayReviews reviews={this.state.reviews}/> */}
       </div>
     )
