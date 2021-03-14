@@ -13,6 +13,11 @@ app.listen(port, () => {
 
 var stars = {};
 
+app.get(`/:property`, function(req, res) {
+  console.log('testing');
+  res.send(req.params.property);
+})
+
 app.get(`/reviews/:property`, function(req, res){
   console.log('server called');
   database.getReviews(req.params.property)

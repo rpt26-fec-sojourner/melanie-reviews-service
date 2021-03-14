@@ -30,12 +30,7 @@ var randomName = function() {
 
 // Randomly assign whether or not the review was last minute
 var lastMinute = function() {
-  var coin = Math.floor(Math.random() * 1);
-  if (coin === 1) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.random() < 0.5;
 }
 
 // Randomly assign star values to the review

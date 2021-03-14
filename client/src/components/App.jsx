@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import DisplayReviews from './DisplayReviews.jsx';
+import DisplayHeader from './DisplayHeader.jsx';
 
 
 class App extends React.Component {
@@ -8,8 +10,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       property: 1,
-      reviews: []
+      reviews: [],
+      averageStars: null,
+      totalAverage: null,
+      totalReviews: null
     };
+    this.getAPIstars = this.getAPIstars.bind(this);
+    this.getAPIaverage = this.getAPIaverage.bind(this);
   }
 
   componentDidMount() {
@@ -17,7 +24,7 @@ class App extends React.Component {
     var propertyNum = window.location.href.slice(23);
     this.state.property = propertyNum;
     // this.getReviews(toString(propertyNum));
-    this.getReviews(6)
+    this.getReviews(1)
   }
 
   getReviews(property) {
@@ -26,8 +33,8 @@ class App extends React.Component {
       url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
         console.log('data:', data);
-        this.testAPIaverage(6);
-        this.testAPIstars(6);
+        this.getAPIaverage(1);
+        this.getAPIstars(1);
         this.setState({
           reviews:data
         })
@@ -35,7 +42,7 @@ class App extends React.Component {
     })
   }
 
-  testAPIaverage(property) {
+  getAPIaverage(property) {
     $.ajax({
       type: "GET",
       url: `http://localhost:1969/average/${property}`,
@@ -45,31 +52,29 @@ class App extends React.Component {
     })
   }
 
-  testAPIstars(property) {
+  getAPIstars(property) {
     $.ajax({
       type: "GET",
       url: `http://localhost:1969/stars/${property}`,
       success:(data)=>{
+
         console.log('data:', data);
       }
     })
   }
 
-
   render () {
     return (
       <div>
-        <p id="testrender">hello world</p>
-        <p className = "second">yo</p>
-      {/* <DisplayReviews reviews={this.state.reviews}/> */}
+        <div id="reviewheader">
+          <DisplayHeader getAverage={this.getAPIaverage} getStars={this.getAPIstars} property={this.state.property}/>
+        </div>
+        <div id="reviewcontainer">
+          <DisplayReviews reviews={this.state.reviews}/>
+        </div>
       </div>
     )
   }
-
-
 }
-
-
-// ReactDOM.render(<App/>, document.getElementById('app'));
 
 export default App;

@@ -10,21 +10,15 @@ import App from '../components/App.jsx';
 //   ReactDOM.unmountComponentAtNode(div);
 // });
 
-// describe('My Test Suite', () => {
-//   it('My Test Case', () => {
-//     expect(true).toEqual(true);
-//   });
-// });
-
 describe('unit tests', () => {
-  // let shallowWrapper: ShallowWrapper;
-  // beforeEach(() => {
-  //   const shallowWrapper = shallow(<App />);
-  // });
   it ('needs to do a thing', () => {
-    const wrapper = shallow(<App />);
-    const text = wrapper.find('.second').text();
-    expect(text).toEqual('yo');
+    var wrapper = shallow(<App />);
+    expect(wrapper.exists()).toBe(true);
   })
-  // it ('needs to do another thing')
+  it ('should render reviews to the page', () => {
+    var wrapper = mount(<App />);
+    var text = wrapper.find('#reviewheader').text();
+    expect(text).toEqual('Star Image Here');
+  })
+
 });
