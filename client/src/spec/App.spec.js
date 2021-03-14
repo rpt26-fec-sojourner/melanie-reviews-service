@@ -15,10 +15,16 @@ describe('unit tests', () => {
     var wrapper = shallow(<App />);
     expect(wrapper.exists()).toBe(true);
   })
-  it ('should render reviews to the page', () => {
+  it ('should render a header div using the header component', () => {
     var wrapper = mount(<App />);
     var text = wrapper.find('#reviewheader').text();
-    expect(text).toEqual('Star Image Here');
+    expect(text).toEqual('/ Star Image Here /');
   })
+  // it ('should render only 6 reviews to the page', () => {
+  //   var wrapper = mount(<App />);
+  //   var rendered = wrapper.find('.singlereview');
+  //   console.log(rendered);
+  //   expect(rendered.length).toEqual(6);
+  // })
 
 });

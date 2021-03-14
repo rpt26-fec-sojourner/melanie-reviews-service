@@ -1,7 +1,7 @@
 import React from 'react';
 
 var DisplayHeader = (props) => {
-  props.getAverage();
+  // props.getAverage();
   return (
     <div>
       <h2>
