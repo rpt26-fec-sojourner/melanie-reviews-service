@@ -11,6 +11,10 @@ app.listen(port, () => {
   console.log(`listening at port ${port}`);
 });
 
+app.get(`/:id`, function(req, res) {
+  res.sendFile('/Users/mdewitt/repos/hack_reactor/fec/rpt26-fec-dewitt-airbnb-service-reviews/client/dist/index.html');
+})
+
 var stars = {};
 
 app.get(`/:property`, function(req, res) {
@@ -35,7 +39,6 @@ app.post(`/reviews/:property`, function(req, res) {
 app.get(`/average/:property`, function(req, res) {
   console.log('get average called');
   var property = req.params.property;
-  console.log(stars)
   res.send({
     stars: stars[property].totalAverage,
     total: stars[property].totalReviews

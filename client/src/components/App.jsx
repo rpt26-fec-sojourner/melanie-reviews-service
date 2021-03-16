@@ -11,7 +11,14 @@ class App extends React.Component {
     this.state = {
       property: 1,
       reviews: [],
-      averageStars: null,
+      averageStars: {
+        cleanliness: null,
+        communication: null,
+        checkin: null,
+        accuracy: null,
+        location: null,
+        value: null
+      },
       totalAverage: null,
       totalReviews: null
     };
@@ -20,11 +27,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // using sample property number for now, will change
-    var propertyNum = window.location.href.slice(23);
+    var propertyNum = window.location.href.split('/').pop();
     this.state.property = propertyNum;
-    // this.getReviews(toString(propertyNum));
-    this.getReviews(1)
+    console.log('propertyNum:', propertyNum);
+    this.getReviews(propertyNum);
   }
 
   getReviews(property) {
@@ -33,8 +39,8 @@ class App extends React.Component {
       url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
         console.log('data:', data);
-        this.getAPIaverage(1);
-        this.getAPIstars(1);
+        this.getAPIaverage(this.state.property);
+        this.getAPIstars(this.state.property);
         this.setState({
           reviews:data
         })
@@ -47,7 +53,10 @@ class App extends React.Component {
       type: "GET",
       url: `http://localhost:1969/average/${property}`,
       success:(data)=>{
-        console.log('data:', data);
+        this.setState({
+          totalReviews: data.total,
+          totalAverage: data.stars
+        });
       }
     })
   }
@@ -57,7 +66,9 @@ class App extends React.Component {
       type: "GET",
       url: `http://localhost:1969/stars/${property}`,
       success:(data)=>{
-
+        this.setState({
+          averageStars: data
+        })
         console.log('data:', data);
       }
     })
@@ -67,7 +78,12 @@ class App extends React.Component {
     return (
       <div>
         <div id="reviewheader">
-          <DisplayHeader getAverage={this.getAPIaverage} getStars={this.getAPIstars} property={this.state.property}/>
+          <DisplayHeader
+            property={this.state.property}
+            totalAverage={this.state.totalAverage}
+            totalReviews={this.state.totalReviews}
+            averageStars={this.state.averageStars}
+          />
         </div>
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
