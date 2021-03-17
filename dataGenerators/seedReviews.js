@@ -24,18 +24,13 @@ var randomProperty = function() {
 }
 
 // Randomly assign a reviewer's name to the review
-var randomName = function(max) {
+var randomName = function() {
   return random();
 }
 
 // Randomly assign whether or not the review was last minute
 var lastMinute = function() {
-  var coin = Math.floor(Math.random() * 1);
-  if (coin === 1) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.random() < 0.5;
 }
 
 // Randomly assign star values to the review
@@ -88,6 +83,7 @@ var createReview = function() {
   return review;
 }
 
+// Create 1000 reviews (change number when necessary)
 for (var i = 0; i < 1000; i++) {
   var sampledata = createReview();
   database.saveReview(sampledata);
