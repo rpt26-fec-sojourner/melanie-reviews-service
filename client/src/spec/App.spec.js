@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render, configure, ShallowWrapper, ReactWrapper } from 'enzyme';
 import App from '../components/App.jsx';
-import jsdom from "jsdom";
+import jsdom from 'jsdom';
 var JSDOM = jsdom
 // const { JSDOM } = jsdom;
 // import { expect } from 'chai';
