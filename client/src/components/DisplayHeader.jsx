@@ -1,8 +1,6 @@
 import React from 'react';
 
 var DisplayHeader = (props) => {
-  // props.getAverage();
-  console.log('header props',props.averageStars)
   return (
     <div>
       <h2>

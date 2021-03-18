@@ -29,7 +29,6 @@ class App extends React.Component {
   componentDidMount() {
     var propertyNum = window.location.href.split('/').pop();
     this.state.property = propertyNum;
-    console.log('propertyNum:', propertyNum);
     this.getReviews(propertyNum);
   }
 
@@ -38,11 +37,11 @@ class App extends React.Component {
       type: "GET",
       url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
-        console.log('data:', data);
         this.getAPIaverage(this.state.property);
         this.getAPIstars(this.state.property);
+        var sorted = this.orderReviews(data);
         this.setState({
-          reviews:data
+          reviews: sorted
         })
       }
     })
@@ -72,6 +71,21 @@ class App extends React.Component {
         console.log('data:', data);
       }
     })
+  }
+
+  orderReviews(reviews) {
+    // for (var i = 0; i < reviews.length; i++) {
+    //   // reviews[i].recent =
+    //   var y = reviews[i].date.year.toString();
+    //   var m = reviews[i].date.month.number.toString();
+    //   if (m.length === 1) {m = '0' + m}
+    //   var d = y + m;
+    //   reviews[i].recent = d;
+    //   console.log('review date', reviews[i].date, 'generated', reviews[i].recent);
+    // }
+
+    var sortedReviews = reviews.sort((a, b) => (a.date.year < b.date.year) ? 1 : (a.date.year === b.date.year) ? ((a.date.month.number < b.date.month.number) ? 1 : -1) : -1 );
+    return(sortedReviews);
   }
 
   render () {
