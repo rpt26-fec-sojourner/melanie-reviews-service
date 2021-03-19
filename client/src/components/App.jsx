@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import DisplayReviews from './DisplayReviews.jsx';
 import DisplayHeader from './DisplayHeader.jsx';
+import DisplayMore from './DisplayMore.jsx';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      moreReviews: false,
+
       property: 1,
       reviews: [],
       averageStars: {
@@ -24,6 +27,7 @@ class App extends React.Component {
     };
     this.getAPIstars = this.getAPIstars.bind(this);
     this.getAPIaverage = this.getAPIaverage.bind(this);
+    this.toggleMoreReviews = this.toggleMoreReviews.bind(this);
   }
 
   componentDidMount() {
@@ -74,19 +78,15 @@ class App extends React.Component {
   }
 
   orderReviews(reviews) {
-    // for (var i = 0; i < reviews.length; i++) {
-    //   // reviews[i].recent =
-    //   var y = reviews[i].date.year.toString();
-    //   var m = reviews[i].date.month.number.toString();
-    //   if (m.length === 1) {m = '0' + m}
-    //   var d = y + m;
-    //   reviews[i].recent = d;
-    //   console.log('review date', reviews[i].date, 'generated', reviews[i].recent);
-    // }
-
     var sortedReviews = reviews.sort((a, b) => (a.date.year < b.date.year) ? 1 : (a.date.year === b.date.year) ? ((a.date.month.number < b.date.month.number) ? 1 : -1) : -1 );
     return(sortedReviews);
   }
+
+toggleMoreReviews() {
+  this.setState({
+    moreReviews:!moreReviews
+  });
+}
 
   render () {
     return (
@@ -101,6 +101,7 @@ class App extends React.Component {
         </div>
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
+          <DisplayMore reviews={this.state.reviews} toggle={this.toggleMoreReviews} more={this.state.moreReviews}/>
         </div>
       </div>
     )
