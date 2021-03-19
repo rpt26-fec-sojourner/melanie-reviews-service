@@ -11,7 +11,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       moreReviews: false,
-
       property: 1,
       reviews: [],
       averageStars: {
@@ -72,7 +71,6 @@ class App extends React.Component {
         this.setState({
           averageStars: data
         })
-        console.log('data:', data);
       }
     })
   }
@@ -101,7 +99,15 @@ toggleMoreReviews() {
         </div>
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
-          <DisplayMore reviews={this.state.reviews} toggle={this.toggleMoreReviews} more={this.state.moreReviews}/>
+          <DisplayMore
+            reviews={this.state.reviews}
+            toggle={this.toggleMoreReviews}
+            more={this.state.moreReviews}
+            property={this.state.property}
+            totalAverage={this.state.totalAverage}
+            totalReviews={this.state.totalReviews}
+            averageStars={this.state.averageStars}
+          />
         </div>
       </div>
     )
