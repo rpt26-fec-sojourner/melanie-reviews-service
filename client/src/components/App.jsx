@@ -27,6 +27,8 @@ class App extends React.Component {
     this.getAPIstars = this.getAPIstars.bind(this);
     this.getAPIaverage = this.getAPIaverage.bind(this);
     this.toggleMoreReviews = this.toggleMoreReviews.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -82,8 +84,17 @@ class App extends React.Component {
 
 toggleMoreReviews() {
   this.setState({
-    moreReviews:!moreReviews
+    moreReviews: !this.state.moreReviews
   });
+}
+
+handleClick() {
+  this.toggleMoreReviews();
+}
+
+handleSubmit(e) {
+  e.preventDefault();
+  console.log('searched', e.target);
 }
 
   render () {
@@ -95,10 +106,12 @@ toggleMoreReviews() {
             totalAverage={this.state.totalAverage}
             totalReviews={this.state.totalReviews}
             averageStars={this.state.averageStars}
+            handleSubmit={this.handleSubmit}
           />
         </div>
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
+          <button onClick={this.handleClick}>Show all {this.state.totalReviews} reviews</button>
           <DisplayMore
             reviews={this.state.reviews}
             toggle={this.toggleMoreReviews}

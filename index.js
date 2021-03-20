@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 1969;
-const database = require('../database/index.js');
+const database = require('./database/index.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -12,15 +12,10 @@ app.listen(port, () => {
 });
 
 app.get(`/:id`, function(req, res) {
-  res.sendFile('/Users/mdewitt/repos/hack_reactor/fec/rpt26-fec-dewitt-airbnb-service-reviews/client/dist/index.html');
+  res.sendFile(__dirname + '/client/dist/index.html');
 })
 
 var stars = {};
-
-app.get(`/:property`, function(req, res) {
-  console.log('testing');
-  res.send(req.params.property);
-})
 
 app.get(`/reviews/:property`, function(req, res){
   console.log('server called');

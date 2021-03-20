@@ -1,11 +1,20 @@
 import React from 'react';
 
 var DisplayHeader = (props) => {
+  var search;
+  if (props.more) {
+    search =
+    <form onsubmit={props.handleSubmit}>
+      <input type="search" id="reviewssearch" ></input>
+    </form>
+
+  }
   return (
     <div>
       <h2>
         / Star Image Here / {props.totalAverage} ({props.totalReviews} reviews)
       </h2>
+      {search}
       <table>
         <tbody>
         <tr>
