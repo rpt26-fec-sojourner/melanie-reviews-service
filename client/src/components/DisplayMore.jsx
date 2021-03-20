@@ -3,7 +3,6 @@ import DisplayHeader from './DisplayHeader.jsx';
 import FormatReview from './FormatReview.jsx';
 
 const DisplayMore = function(props) {
-  // come up with a way to add a search bar without making a separate header component for the 'see more' popup
   if (props.more === true) {
     return (
       <div id="morereviews">
@@ -13,6 +12,7 @@ const DisplayMore = function(props) {
             totalAverage={props.totalAverage}
             totalReviews={props.totalReviews}
             averageStars={props.averageStars}
+            more={props.more}
           />
         </div>
         <div id="morereviewslist">
