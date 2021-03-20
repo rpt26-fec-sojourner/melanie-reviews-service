@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const port = 1969;
 const database = require('./database/index.js');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('client/dist'));
@@ -12,13 +14,14 @@ app.listen(port, () => {
 });
 
 app.get(`/:id`, function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
   res.sendFile(__dirname + '/client/dist/index.html');
 })
 
 var stars = {};
 
 app.get(`/reviews/:property`, function(req, res){
-  console.log('server called');
+  res.header('Access-Control-Allow-Origin', '*');
   database.getReviews(req.params.property)
   .then((data) => {
     var reviews = data[0].reviews;
@@ -27,12 +30,13 @@ app.get(`/reviews/:property`, function(req, res){
 })
 
 app.post(`/reviews/:property`, function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
   database.saveProperty(req.params.property)
   res.send(req.params.property);
 })
 
 app.get(`/average/:property`, function(req, res) {
-  console.log('get average called');
+  res.header('Access-Control-Allow-Origin', '*');
   var property = req.params.property;
   res.send({
     stars: stars[property].totalAverage,
@@ -41,7 +45,7 @@ app.get(`/average/:property`, function(req, res) {
 })
 
 app.get(`/stars/:property`, function(req, res) {
-  console.log('get stars called');
+  res.header('Access-Control-Allow-Origin', '*');
   var property = req.params.property;
   res.send(
     stars[property].ratings
