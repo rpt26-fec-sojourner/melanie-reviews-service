@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatReview from './FormatReview.jsx';
+import FormatReview from './formatReview.jsx';
 
 var DisplayReviews = (props) => {
   var topSix = props.reviews.slice(0,6);

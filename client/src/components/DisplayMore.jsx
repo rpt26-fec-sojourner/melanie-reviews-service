@@ -1,6 +1,6 @@
 import React from 'react';
 import DisplayHeader from './DisplayHeader.jsx';
-import FormatReview from './FormatReview.jsx';
+import FormatReview from './formatReview.jsx';
 
 const DisplayMore = function(props) {
   if (props.more === true) {
