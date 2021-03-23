@@ -7,8 +7,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed1": "node /dataGenerators/seedProperties.js",
-    "seed2": "node /dataGenerators/seedReviews.js",
+    "seed1": "node ./dataGenerators/seedProperties.js",
+    "seed2": "node ./dataGenerators/seedReviews.js",
     "react-dev": "webpack -d --watch",
     "start": "nodemon index.js",
     "build": "webpack",
