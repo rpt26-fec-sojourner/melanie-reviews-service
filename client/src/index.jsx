@@ -6,4 +6,4 @@ const launchApp = function() {
   return <App />
 };
 
-ReactDOM.render(launchApp(), document.getElementById('app'));
+ReactDOM.render(launchApp(), document.getElementById('reviews'));
