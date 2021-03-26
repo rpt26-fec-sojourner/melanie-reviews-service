@@ -17,9 +17,10 @@ var DisplayHeader = (props) => {
   console.log(percentage(props.averageStars.cleanliness));
 
   return (
-    <div>
+    <div className={styles.text}>
       <h2>
-        / Star Image Here / {props.totalAverage} ({props.totalReviews} reviews)
+        <p className="fa fa-star" style={{color:'#FC395C'}}></p>
+          {props.totalAverage} ({props.totalReviews} reviews)
       </h2>
       {search}
       <table>
@@ -33,15 +34,44 @@ var DisplayHeader = (props) => {
           </td>
           <td>{props.averageStars.cleanliness}</td>
           <td>Accuracy</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.accuracy)}} className={styles.progress}></div>
+            </div>
+          </td>
           <td>{props.averageStars.accuracy}</td>
         </tr>
         <tr>
-          <td>Communication</td><td>{props.averageStars.communication}</td>
-          <td>Location</td><td>{props.averageStars.location}</td>
+          <td>Communication</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.communication)}} className={styles.progress}></div>
+            </div>
+          </td>
+          <td>{props.averageStars.communication}</td>
+          <td>Location</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.location)}} className={styles.progress}></div>
+            </div>
+          </td>
+          <td>{props.averageStars.location}</td>
         </tr>
         <tr>
-          <td>Check In</td><td>{props.averageStars.checkin}</td>
-          <td>Value</td><td>{props.averageStars.value}</td>
+          <td>Check In</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.checkin)}} className={styles.progress}></div>
+            </div>
+          </td>
+          <td>{props.averageStars.checkin}</td>
+          <td>Value</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.value)}} className={styles.progress}></div>
+            </div>
+          </td>
+          <td>{props.averageStars.value}</td>
         </tr>
         </tbody>
       </table>
