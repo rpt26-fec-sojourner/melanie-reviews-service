@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles.modules.css';
 
 var DisplayHeader = (props) => {
   var search;
@@ -7,8 +8,14 @@ var DisplayHeader = (props) => {
     <form onsubmit={props.handleSubmit}>
       <input type="search" id="reviewssearch" ></input>
     </form>
-
   }
+  var percentage = function(starcount) {
+    var percentage = Math.floor(starcount / 5 * 100);
+    return percentage.toString() + '%';
+  }
+
+  console.log(percentage(props.averageStars.cleanliness));
+
   return (
     <div>
       <h2>
@@ -18,8 +25,15 @@ var DisplayHeader = (props) => {
       <table>
         <tbody>
         <tr>
-          <td>Cleanliness</td><td>{props.averageStars.cleanliness}</td>
-          <td>Accuracy</td><td>{props.averageStars.accuracy}</td>
+          <td>Cleanliness</td>
+          <td>
+            <div className={styles.outerprogress}>
+              <div style={{width:percentage(props.averageStars.cleanliness)}} className={styles.progress}></div>
+            </div>
+          </td>
+          <td>{props.averageStars.cleanliness}</td>
+          <td>Accuracy</td>
+          <td>{props.averageStars.accuracy}</td>
         </tr>
         <tr>
           <td>Communication</td><td>{props.averageStars.communication}</td>

@@ -1,0 +1,15 @@
+.test {
+  color: red
+}
+
+.outerprogress {
+  height: 5px;
+  width: 100px;
+  background: #DDDDDD;
+  /* border-radius: 25%; */
+}
+
+.progress {
+  height: 100%;
+  background:#222323;
+}
