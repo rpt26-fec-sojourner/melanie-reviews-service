@@ -1,0 +1,64 @@
+.outerprogress {
+  height: 5px;
+  width: 100px;
+  background: #DDDDDD;
+  /* border-radius: 25%; */
+}
+
+.progress {
+  height: 100%;
+  background:#222323;
+}
+
+.text {
+  color:#222323;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  line-height: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.shrinkthegoshdarnstar {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+table {
+  width: 100%;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  /* display: inline-block */
+}
+
+.reviewstable {
+  width: 200px;
+  padding: 5px;
+}
+
+.reviewname {
+  font-weight: 600;
+}
+
+.reviewdate {
+  font-size: 14px;
+  color: #7B7B7B
+}

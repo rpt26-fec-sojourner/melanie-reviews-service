@@ -18,6 +18,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        //
+        // loader: 'style-loader!css-loader',
+        //
         use: [
           'style-loader',
           'css-loader'
@@ -36,28 +39,3 @@ module.exports = {
     // "@babel/plugin-proposal-function-bind",
   ],
 };
-
-// const path = require('path');
-
-// module.exports = {
-//   entry: path.resolve(__dirname, './src/index.jsx'),
-//   module: {
-//     rules: [
-//       {
-//         test: /\.(js|jsx)$/,
-//         exclude: /node_modules/,
-//         use: ['babel-loader'],
-//       },
-//     ],
-//   },
-//   resolve: {
-//     extensions: ['*', '.js', '.jsx'],
-//   },
-//   output: {
-//     path: path.resolve(__dirname, './dist'),
-//     filename: 'bundle.js',
-//   },
-//   devServer: {
-//     contentBase: path.resolve(__dirname, './dist'),
-//   },
-// };

@@ -4,7 +4,7 @@ import $ from 'jquery';
 import DisplayReviews from './DisplayReviews.jsx';
 import DisplayHeader from './DisplayHeader.jsx';
 import DisplayMore from './DisplayMore.jsx';
-
+import styles from './styles.modules.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -100,7 +100,7 @@ handleSubmit(e) {
   render () {
     return (
       <div>
-        <div id="reviewheader">
+        <div id="reviewheader" className={styles.test}>
           <DisplayHeader
             property={this.state.property}
             totalAverage={this.state.totalAverage}
