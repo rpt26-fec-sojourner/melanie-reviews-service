@@ -14,14 +14,13 @@ var DisplayHeader = (props) => {
     return percentage.toString() + '%';
   }
 
-  console.log(percentage(props.averageStars.cleanliness));
-
   return (
     <div className={styles.text}>
-      <h2>
-        <p className="fa fa-star" style={{color:'#FC395C'}}></p>
-          {props.totalAverage} ({props.totalReviews} reviews)
-      </h2>
+      <div className={styles.title}>
+        <div className={styles.shrinkthegoshdarnstar}>
+          <span className="fa fa-star" style={{color:'#FC395C'}}></span>
+        </div>  {props.totalAverage} ({props.totalReviews} reviews)
+      </div>
       {search}
       <table>
         <tbody>
@@ -29,7 +28,8 @@ var DisplayHeader = (props) => {
           <td>Cleanliness</td>
           <td>
             <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.cleanliness)}} className={styles.progress}></div>
+              <div style={{width:percentage(props.averageStars.cleanliness)}} className={styles.progress}>
+              </div>
             </div>
           </td>
           <td>{props.averageStars.cleanliness}</td>
