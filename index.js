@@ -25,8 +25,11 @@ app.get(`/reviews/:property`, function(req, res){
   database.getReviews(req.params.property)
   .then((data) => {
     var reviews = data[0].reviews;
-    collectStars(req.params.property, reviews)
+    collectStars(req.params.property, reviews);
     res.send(reviews)})
+  .catch((err) => {
+    res.status(500).send(err)
+  })
 })
 
 app.post(`/reviews/:property`, function(req, res) {

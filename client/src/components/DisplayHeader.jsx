@@ -3,7 +3,7 @@ import styles from './styles.modules.css';
 
 var DisplayHeader = (props) => {
   var search;
-  if (props.more) {
+  if (props.all) {
     search =
     <form onsubmit={props.handleSubmit}>
       <input type="search" id="reviewssearch" ></input>

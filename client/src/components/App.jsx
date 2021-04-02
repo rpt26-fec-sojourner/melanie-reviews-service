@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import DisplayReviews from './DisplayReviews.jsx';
 import DisplayHeader from './DisplayHeader.jsx';
-import DisplayMore from './DisplayMore.jsx';
+import DisplayAll from './DisplayAll.jsx';
 import styles from './styles.modules.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreReviews: false,
+      allReviews: false,
       property: 1,
       reviews: [],
       averageStars: {
@@ -26,7 +26,7 @@ class App extends React.Component {
     };
     this.getAPIstars = this.getAPIstars.bind(this);
     this.getAPIaverage = this.getAPIaverage.bind(this);
-    this.toggleMoreReviews = this.toggleMoreReviews.bind(this);
+    this.toggleAllReviews = this.toggleAllReviews.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -82,14 +82,14 @@ class App extends React.Component {
     return(sortedReviews);
   }
 
-toggleMoreReviews() {
+toggleAllReviews() {
   this.setState({
-    moreReviews: !this.state.moreReviews
+    allReviews: !this.state.allReviews
   });
 }
 
 handleClick() {
-  this.toggleMoreReviews();
+  this.toggleAllReviews();
 }
 
 handleSubmit(e) {
@@ -112,10 +112,10 @@ handleSubmit(e) {
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
           <button onClick={this.handleClick}>Show all {this.state.totalReviews} reviews</button>
-          <DisplayMore
+          <DisplayAll
             reviews={this.state.reviews}
-            toggle={this.toggleMoreReviews}
-            more={this.state.moreReviews}
+            toggle={this.toggleAllReviews}
+            all={this.state.allReviews}
             property={this.state.property}
             totalAverage={this.state.totalAverage}
             totalReviews={this.state.totalReviews}
