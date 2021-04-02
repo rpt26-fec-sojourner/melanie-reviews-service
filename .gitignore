@@ -1,5 +1,8 @@
 .env
 images
+Test2.pem
+Reviews_Test.pem
+login.sh
 
 ## MAC files ##
 .DS_Store
