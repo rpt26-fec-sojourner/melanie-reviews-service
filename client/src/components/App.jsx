@@ -31,16 +31,27 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   componentDidMount() {
     var propertyNum = window.location.href.split('/').pop();
     this.state.property = propertyNum;
     this.getReviews(propertyNum);
   }
 
+  getURL() {
+    var url = window.location.href;
+    url = url.split(':');
+    url.pop();
+    url = url.join(':');
+    return url;
+  }
+
   getReviews(property) {
+    var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `http://localhost:1969/reviews/${property}`,
+      url: `${url}:1969/reviews/${property}`,
+      // url: `http://localhost:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
         this.getAPIstars(this.state.property);
@@ -53,9 +64,11 @@ class App extends React.Component {
   }
 
   getAPIaverage(property) {
+    var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `http://localhost:1969/average/${property}`,
+      url: `${url}:1969/average/${property}`,
+      // url: `http://localhost:1969/average/${property}`,
       success:(data)=>{
         this.setState({
           totalReviews: data.total,
@@ -66,9 +79,11 @@ class App extends React.Component {
   }
 
   getAPIstars(property) {
+    var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `http://localhost:1969/stars/${property}`,
+      url: `${url}:1969/stars/${property}`,
+      // url: `http://localhost:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
           averageStars: data
