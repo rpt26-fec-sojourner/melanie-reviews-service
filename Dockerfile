@@ -9,6 +9,6 @@ RUN npm install
 
 COPY . .
 
-RUN build
+RUN npm run build
 
 CMD [ "node", "index.js" ]
