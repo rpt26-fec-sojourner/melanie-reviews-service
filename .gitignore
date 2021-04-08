@@ -3,6 +3,10 @@ images
 Test2.pem
 Reviews_Test.pem
 login.sh
+mongokey.pem
+service.sh
+proxy.sh
+
 
 ## MAC files ##
 .DS_Store

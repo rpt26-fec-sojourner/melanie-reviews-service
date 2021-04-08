@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/spacebnb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/spacebnb', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 let reviewsSchema = mongoose.Schema({
@@ -49,7 +49,8 @@ let saveReview = (reviewObj) => {
 
 let getReviews = (propertyID) => {
   console.log('mongoose')
-  mongoose.connect('mongodb://localhost/spacebnb');
+  console.log('url', window.location.href)
+  mongoose.connect('mongodb://localhost:27017/spacebnb');
   let db = mongoose.connection;
   let result = Reviews.find({propertyName: propertyID});
   return result;
