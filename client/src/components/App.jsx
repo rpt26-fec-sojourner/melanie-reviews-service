@@ -50,8 +50,8 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `${url}:1969/reviews/${property}`,
-      // url: `http://localhost:1969/reviews/${property}`,
+      url: `http://3.21.252.90:1969/reviews/${property}`,
+      // url: `${url}:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
         this.getAPIstars(this.state.property);
@@ -67,8 +67,8 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `${url}:1969/average/${property}`,
-      // url: `http://localhost:1969/average/${property}`,
+      url: `http://3.21.252.90:1969/average/${property}`,
+      // url: `${url}:1969/average/${property}`,
       success:(data)=>{
         this.setState({
           totalReviews: data.total,
@@ -82,8 +82,8 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      url: `${url}:1969/stars/${property}`,
-      // url: `http://localhost:1969/stars/${property}`,
+      url: `http://3.21.252.90:1969/stars/${property}`,
+      // url: `${url}:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
           averageStars: data
