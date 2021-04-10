@@ -50,7 +50,10 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
+      // use this URL when committing
       url: `http://3.21.252.90:1969/reviews/${property}`,
+      // use this URL to play locally
+      // url: `http://localhost:1969/reviews/${property}`,
       // url: `${url}:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
@@ -67,7 +70,10 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
+      // use this URL when committing
       url: `http://3.21.252.90:1969/average/${property}`,
+      // use this URL when playing locally
+      // url: `http://localhost:1969/average/${property}`,
       // url: `${url}:1969/average/${property}`,
       success:(data)=>{
         this.setState({
@@ -82,7 +88,10 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
+      // use this URL when committing
       url: `http://3.21.252.90:1969/stars/${property}`,
+      // use this URL when playing locally
+      // url: `http://localhost:1969/stars/${property}`,
       // url: `${url}:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
@@ -114,7 +123,7 @@ handleSubmit(e) {
 
   render () {
     return (
-      <div>
+      <div className={styles.reviewsservice}>
         <div id="reviewheader" className={styles.test}>
           <DisplayHeader
             property={this.state.property}
@@ -126,7 +135,7 @@ handleSubmit(e) {
         </div>
         <div id="reviewcontainer">
           <DisplayReviews reviews={this.state.reviews}/>
-          <button onClick={this.handleClick}>Show all {this.state.totalReviews} reviews</button>
+          <button onClick={this.handleClick} className={styles.allbutton}>Show all {this.state.totalReviews} reviews</button>
           <DisplayAll
             reviews={this.state.reviews}
             toggle={this.toggleAllReviews}

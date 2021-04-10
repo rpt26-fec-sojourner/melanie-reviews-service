@@ -3,7 +3,7 @@ import DisplayHeader from './DisplayHeader.jsx';
 import FormatReview from './FormatReview.jsx';
 
 const DisplayMore = function(props) {
-  if (props.more === true) {
+  if (props.all === true) {
     return (
       <div id="morereviews">
         <div id="morereviewsheader">
@@ -12,7 +12,7 @@ const DisplayMore = function(props) {
             totalAverage={props.totalAverage}
             totalReviews={props.totalReviews}
             averageStars={props.averageStars}
-            more={props.more}
+            all={props.all}
           />
         </div>
         <div id="morereviewslist">
