@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './styles.modules.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons';
+
 var DisplayHeader = (props) => {
   var search;
   if (props.all) {
@@ -18,7 +21,7 @@ var DisplayHeader = (props) => {
     <div className={styles.text}>
       <div className={styles.title}>
         <div className={styles.shrinkthegoshdarnstar}>
-          <span className="fa fa-star" style={{color:'#FC395C'}}></span>
+          <FontAwesomeIcon icon={solidFaStar} style={{color:'#FC395C'}}/>
         </div>  {props.totalAverage} ({props.totalReviews} reviews)
       </div>
       {search}
@@ -27,51 +30,68 @@ var DisplayHeader = (props) => {
         <tr>
           <td>Cleanliness</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.cleanliness)}} className={styles.progress}>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.cleanliness)}} className={styles.progress}>
+                </div>
               </div>
+              <span className={styles.averages}>{props.averageStars.cleanliness}</span>
             </div>
           </td>
-          <td>{props.averageStars.cleanliness}</td>
           <td>Accuracy</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.accuracy)}} className={styles.progress}></div>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.accuracy)}} className={styles.progress}>
+                </div>
+              </div>
+              <span className={styles.averages}>{props.averageStars.accuracy}</span>
             </div>
           </td>
-          <td>{props.averageStars.accuracy}</td>
         </tr>
         <tr>
           <td>Communication</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.communication)}} className={styles.progress}></div>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.communication)}} className={styles.progress}>
+                </div>
+              </div>
+              <span className={styles.averages}>{props.averageStars.communication}</span>
             </div>
           </td>
-          <td>{props.averageStars.communication}</td>
           <td>Location</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.location)}} className={styles.progress}></div>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.location)}} className={styles.progress}>
+                </div>
+              </div>
+              <span className={styles.averages}>{props.averageStars.location}</span>
             </div>
           </td>
-          <td>{props.averageStars.location}</td>
         </tr>
         <tr>
           <td>Check In</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.checkin)}} className={styles.progress}></div>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.checkin)}} className={styles.progress}>
+                </div>
+              </div>
+              <span className={styles.averages}>{props.averageStars.checkin}</span>
             </div>
           </td>
-          <td>{props.averageStars.checkin}</td>
           <td>Value</td>
           <td>
-            <div className={styles.outerprogress}>
-              <div style={{width:percentage(props.averageStars.value)}} className={styles.progress}></div>
+            <div className={styles.allprogress}>
+              <div className={styles.outerprogress}>
+                <div style={{width:percentage(props.averageStars.value)}} className={styles.progress}>
+                </div>
+              </div>
+              <span className={styles.averages}>{props.averageStars.value}</span>
             </div>
           </td>
-          <td>{props.averageStars.value}</td>
         </tr>
         </tbody>
       </table>
