@@ -2,8 +2,8 @@ import React from 'react';
 import DisplayHeader from './DisplayHeader.jsx';
 import FormatReview from './FormatReview.jsx';
 
-const DisplayMore = function(props) {
-  if (props.all === true) {
+const DisplayAll = function(props) {
+  // if (props.all === true) {
     return (
       <div id="morereviews">
         <div id="morereviewsheader">
@@ -22,11 +22,11 @@ const DisplayMore = function(props) {
         </div>
       </div>
     )
-  } else {
-    return (
-      <div></div>
-    )
-  }
+  // } else {
+  //   return (
+  //     <div></div>
+  //   )
+  // }
 }
 
-export default DisplayMore;
+export default DisplayAll;

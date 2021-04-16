@@ -4,7 +4,7 @@ import styles from './styles.modules.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons';
 
-var DisplayHeader = (props) => {
+var DisplayAllHeader = (props) => {
   var search;
   if (props.all) {
     // console.log(props);
@@ -103,4 +103,4 @@ var DisplayHeader = (props) => {
   )
 }
 
-export default DisplayHeader;
+export default DisplayAllHeader;
