@@ -5,17 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons';
 
 var DisplayAllHeader = (props) => {
-  var search;
-  if (props.all) {
-    // console.log(props);
-    // console.log('test:', props.test);
-    // console.log('props.handleSubmit:', props.handlesubmit)
-    search =
-    <form onSubmit={props.handlesubmit}>
-      <input type="search" id="reviewssearch" ></input>
-      {/* <button type="submit" >this is a button.</button> */}
-    </form>
-  }
+
   var percentage = function(starcount) {
     var percentage = Math.floor(starcount / 5 * 100);
     return percentage.toString() + '%';
@@ -28,7 +18,9 @@ var DisplayAllHeader = (props) => {
           <FontAwesomeIcon icon={solidFaStar} style={{color:'#FC395C'}}/>
         </div>  {props.totalAverage} ({props.totalReviews} reviews)
       </div>
-      {search}
+      <form onSubmit={props.handlesubmit}>
+      <input type="search" id="reviewssearch" ></input>
+      </form>
       <table>
         <tbody>
         <tr>
@@ -42,6 +34,8 @@ var DisplayAllHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.cleanliness}</span>
             </div>
           </td>
+        </tr>
+        <tr>
           <td>Accuracy</td>
           <td>
             <div className={styles.allprogress}>
@@ -64,6 +58,8 @@ var DisplayAllHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.communication}</span>
             </div>
           </td>
+        </tr>
+        <tr>
           <td>Location</td>
           <td>
             <div className={styles.allprogress}>
@@ -86,6 +82,8 @@ var DisplayAllHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.checkin}</span>
             </div>
           </td>
+          </tr>
+        <tr>
           <td>Value</td>
           <td>
             <div className={styles.allprogress}>

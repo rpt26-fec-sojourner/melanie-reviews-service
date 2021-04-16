@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons';
 
 var DisplayHeader = (props) => {
-  var search;
-  if (props.all) {
-    // console.log(props);
-    // console.log('test:', props.test);
-    // console.log('props.handleSubmit:', props.handlesubmit)
-    search =
-    <form onSubmit={props.handlesubmit}>
-      <input type="search" id="reviewssearch" ></input>
-      {/* <button type="submit" >this is a button.</button> */}
-    </form>
-  }
+  // var search;
+  // if (props.all) {
+  //   // console.log(props);
+  //   // console.log('test:', props.test);
+  //   // console.log('props.handleSubmit:', props.handlesubmit)
+  //   search =
+  //   <form onSubmit={props.handlesubmit}>
+  //     <input type="search" id="reviewssearch" ></input>
+  //     {/* <button type="submit" >this is a button.</button> */}
+  //   </form>
+  // }
   var percentage = function(starcount) {
     var percentage = Math.floor(starcount / 5 * 100);
     return percentage.toString() + '%';
@@ -28,7 +28,7 @@ var DisplayHeader = (props) => {
           <FontAwesomeIcon icon={solidFaStar} style={{color:'#FC395C'}}/>
         </div>  {props.totalAverage} ({props.totalReviews} reviews)
       </div>
-      {search}
+      {/* {search} */}
       <table>
         <tbody>
         <tr>

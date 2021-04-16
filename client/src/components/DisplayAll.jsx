@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayHeader from './DisplayHeader.jsx';
+import DisplayAllHeader from './DisplayAllHeader.jsx';
 import FormatReview from './FormatReview.jsx';
 
 const DisplayAll = function(props) {
@@ -7,7 +7,7 @@ const DisplayAll = function(props) {
     return (
       <div id="morereviews">
         <div id="morereviewsheader">
-          <DisplayHeader
+          <DisplayAllHeader
             property={props.property}
             totalAverage={props.totalAverage}
             totalReviews={props.totalReviews}
