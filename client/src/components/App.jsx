@@ -38,7 +38,6 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    console.log('allreviews:', this.state.allReviews);
     var propertyNum = window.location.href.split('/').pop();
     this.state.property = propertyNum;
     this.getReviews(propertyNum);
@@ -113,17 +112,9 @@ class App extends React.Component {
   }
 
   toggleAllReviews() {
-    console.log('toggle begin', this.state.allReviews)
     this.setState({
       allReviews: !this.state.allReviews
     });
-    console.log('toggle after', this.state.allReviews);
-    // this.handlePopup();
-    // if (!this.state.allReviews) {
-    //   this.displayPopup();
-    // } else {
-    //   this.closePopup();
-    // }
   }
 
   handleClick() {
@@ -133,7 +124,6 @@ class App extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('yo');
     e.preventDefault();
     console.log('searched', e.target);
   }

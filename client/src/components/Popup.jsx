@@ -1,6 +1,11 @@
-import React from "react";
-import popup from "./popup.modules.css";
-import DisplayAll from "./DisplayAll.jsx";
+import React from 'react';
+import popup from './popup.modules.css';
+import styles from './styles.modules.css';
+import DisplayAll from './DisplayAll.jsx';
+import DisplayAllHeader from './DisplayAllHeader.jsx';
+import StarAverages from './StarAverages.jsx';
+import Search from './Search.jsx';
+import FormatReview from './FormatReview.jsx';
 
 const Popup = (props) => {
   if (props.all === true) {
@@ -12,14 +17,46 @@ const Popup = (props) => {
           <br></br>
           <br></br>
           <br></br>
-          <DisplayAll
+          <table className={popup.table}>
+            <tr>
+              <th>
+                <DisplayAllHeader
+                  property={props.property}
+                  totalAverage={props.totalAverage}
+                  totalReviews={props.totalReviews}
+                  averageStars={props.averageStars}
+                />
+              </th>
+              <th>
+                <Search />
+              </th>
+            </tr>
+            <tr>
+              <td className={popup.table}>
+                <StarAverages
+                  property={props.property}
+                  totalAverage={props.totalAverage}
+                  totalReviews={props.totalReviews}
+                  averageStars={props.averageStars}
+                />
+              </td>
+              <td className={popup.table}>
+                <div className={popup.allreviews}>
+                  {props.reviews.map((review) => {
+                  return <FormatReview review={review}/>
+                  })}
+                </div>
+              </td>
+            </tr>
+          </table>
+          {/* <DisplayAll
             reviews={props.reviews}
             property={props.property}
             totalAverage={props.totalAverage}
             totalReviews={props.totalReviews}
             averageStars={props.averageStars}
             all={props.all}
-          />
+          /> */}
         </div>
 
       </div>
