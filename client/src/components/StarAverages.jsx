@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from './styles.modules.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons';
 
-var DisplayHeader = (props) => {
+const StarAverages = function(props) {
 
   var percentage = function(starcount) {
     var percentage = Math.floor(starcount / 5 * 100);
@@ -12,14 +10,8 @@ var DisplayHeader = (props) => {
   }
 
   return (
-    <div className={styles.text}>
-      <div className={styles.title}>
-        <div className={styles.shrinkthegoshdarnstar}>
-          <FontAwesomeIcon icon={solidFaStar} style={{color:'#FC395C'}}/>
-        </div>  {props.totalAverage} ({props.totalReviews} reviews)
-      </div>
-      <table>
-        <tbody>
+    <table className={styles.text}>
+      <tbody>
         <tr>
           <td>Cleanliness</td>
           <td>
@@ -31,6 +23,8 @@ var DisplayHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.cleanliness}</span>
             </div>
           </td>
+        </tr>
+        <tr>
           <td>Accuracy</td>
           <td>
             <div className={styles.allprogress}>
@@ -53,6 +47,8 @@ var DisplayHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.communication}</span>
             </div>
           </td>
+        </tr>
+        <tr>
           <td>Location</td>
           <td>
             <div className={styles.allprogress}>
@@ -75,6 +71,8 @@ var DisplayHeader = (props) => {
               <span className={styles.averages}>{props.averageStars.checkin}</span>
             </div>
           </td>
+          </tr>
+        <tr>
           <td>Value</td>
           <td>
             <div className={styles.allprogress}>
@@ -86,10 +84,10 @@ var DisplayHeader = (props) => {
             </div>
           </td>
         </tr>
-        </tbody>
-      </table>
-    </div>
-  )
+      </tbody>
+    </table>
+    )
+
 }
 
-export default DisplayHeader;
+export default StarAverages;
