@@ -56,9 +56,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      // url: `http://3.21.252.90:1969/reviews/${property}`,
+      url: `http://3.21.252.90:1969/reviews/${property}`,
       // use this URL to play locally
-      url: `http://localhost:1969/reviews/${property}`,
+      // url: `http://localhost:1969/reviews/${property}`,
       // url: `${url}:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
@@ -76,9 +76,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      // url: `http://3.21.252.90:1969/average/${property}`,
+      url: `http://3.21.252.90:1969/average/${property}`,
       // use this URL when playing locally
-      url: `http://localhost:1969/average/${property}`,
+      // url: `http://localhost:1969/average/${property}`,
       // url: `${url}:1969/average/${property}`,
       success:(data)=>{
         this.setState({
@@ -94,9 +94,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      // url: `http://3.21.252.90:1969/stars/${property}`,
+      url: `http://3.21.252.90:1969/stars/${property}`,
       // use this URL when playing locally
-      url: `http://localhost:1969/stars/${property}`,
+      // url: `http://localhost:1969/stars/${property}`,
       // url: `${url}:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
