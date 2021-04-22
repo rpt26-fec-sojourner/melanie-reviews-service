@@ -28,7 +28,7 @@ const Popup = (props) => {
                 />
               </th>
               <th>
-                <Search />
+                <Search handleSubmit={props.handleSubmit}/>
               </th>
             </tr>
             <tr>
@@ -49,14 +49,6 @@ const Popup = (props) => {
               </td>
             </tr>
           </table>
-          {/* <DisplayAll
-            reviews={props.reviews}
-            property={props.property}
-            totalAverage={props.totalAverage}
-            totalReviews={props.totalReviews}
-            averageStars={props.averageStars}
-            all={props.all}
-          /> */}
         </div>
 
       </div>

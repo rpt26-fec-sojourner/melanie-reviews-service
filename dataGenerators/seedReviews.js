@@ -84,7 +84,7 @@ var createReview = function() {
 }
 
 // Create 1000 reviews (change number when necessary)
-for (var i = 0; i < 1000; i++) {
+for (var i = 0; i < 1001; i++) {
   var sampledata = createReview();
   database.saveReview(sampledata);
 }

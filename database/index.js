@@ -48,7 +48,6 @@ let saveReview = (reviewObj) => {
 }
 
 let getReviews = (propertyID) => {
-  console.log('mongoose')
   mongoose.connect('mongodb://localhost:27017/spacebnb');
   let db = mongoose.connection;
   let result = Reviews.find({propertyName: propertyID});

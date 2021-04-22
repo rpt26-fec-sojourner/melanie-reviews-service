@@ -14,7 +14,7 @@ const Search = function(props) {
         </div>
         <div className={popup.searchbar}>
           <form onSubmit={props.handlesubmit}>
-          <input type="search" id="reviewssearch" placeholder="Search Reviews"></input>
+          <input onSubmit={props.handleSubmit} type="search" id="reviewssearch" placeholder="Search reviews"></input>
           </form>
         </div>
       </div>

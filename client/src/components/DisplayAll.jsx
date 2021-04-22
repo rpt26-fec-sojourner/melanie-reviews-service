@@ -1,3 +1,5 @@
+// I don't think this file is even being used anymore since I refactored to add a popup
+
 import React from 'react';
 import DisplayAllHeader from './DisplayAllHeader.jsx';
 import FormatReview from './FormatReview.jsx';
@@ -11,7 +13,6 @@ const DisplayAll = function(props) {
     return percentage.toString() + '%';
   }
 
-  // if (props.all === true) {
     return (
       <div id="morereviews">
         <div id="morereviewsheader">
@@ -110,11 +111,6 @@ const DisplayAll = function(props) {
         </div>
       </div>
     )
-  // } else {
-  //   return (
-  //     <div></div>
-  //   )
-  // }
 }
 
 export default DisplayAll;
