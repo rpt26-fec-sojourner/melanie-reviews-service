@@ -31,9 +31,6 @@ class App extends React.Component {
     this.toggleAllReviews = this.toggleAllReviews.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.displayPopup = this.displayPopup.bind(this);
-    this.closePopup = this.closePopup.bind(this);
-    // this.handlePopup = this.handlePopup.bind(this);
   }
 
 
@@ -56,9 +53,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      url: `http://3.21.252.90:1969/reviews/${property}`,
+      // url: `http://3.21.252.90:1969/reviews/${property}`,
       // use this URL to play locally
-      // url: `http://localhost:1969/reviews/${property}`,
+      url: `http://localhost:1969/reviews/${property}`,
       // url: `${url}:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
@@ -76,9 +73,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      url: `http://3.21.252.90:1969/average/${property}`,
+      // url: `http://3.21.252.90:1969/average/${property}`,
       // use this URL when playing locally
-      // url: `http://localhost:1969/average/${property}`,
+      url: `http://localhost:1969/average/${property}`,
       // url: `${url}:1969/average/${property}`,
       success:(data)=>{
         this.setState({
@@ -94,9 +91,9 @@ class App extends React.Component {
     $.ajax({
       type: "GET",
       // use this URL when committing
-      url: `http://3.21.252.90:1969/stars/${property}`,
+      // url: `http://3.21.252.90:1969/stars/${property}`,
       // use this URL when playing locally
-      // url: `http://localhost:1969/stars/${property}`,
+      url: `http://localhost:1969/stars/${property}`,
       // url: `${url}:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
@@ -118,26 +115,12 @@ class App extends React.Component {
   }
 
   handleClick() {
-    console.log('click registered')
-    // console.log('all? ', this.state.allReviews)
     this.toggleAllReviews();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log('searched', e.target);
-  }
-
-  displayPopup() {
-    var element = document.querySelector('.modal');
-    console.log('display',element);
-    // element.style.display = "block";
-  }
-
-  closePopup() {
-    var element = document.querySelector('.modal');
-    console.log('close', element)
-    // element.style.display = "none";
   }
 
   render () {
@@ -165,6 +148,7 @@ class App extends React.Component {
             totalAverage={this.state.totalAverage}
             totalReviews={this.state.totalReviews}
             averageStars={this.state.averageStars}
+            handleSubmit={this.state.handleSubmit}
           />
         </div>
       </div>

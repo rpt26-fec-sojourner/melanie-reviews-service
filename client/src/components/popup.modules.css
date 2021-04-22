@@ -67,9 +67,10 @@
   padding: 10px;
   float: left;
   background-color: transparent;
+  border: none;
 }
 
-.searchbar[type="text"] {
+.searchbar[type="search"] {
   border: none;
   /* outline: none; */
   background-color: transparent;
