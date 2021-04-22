@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './styles.modules.css';
 
 
+// Currently this displays them down in a single column which is why I don't have this being used for both the regular view and the popup view
+
 const StarAverages = function(props) {
 
   var percentage = function(starcount) {

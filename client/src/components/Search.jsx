@@ -13,7 +13,7 @@ const Search = function(props) {
           <FontAwesomeIcon icon={faSearch} />
         </div>
         <div className={popup.searchbar}>
-          <form onSubmit={props.handlesubmit}>
+          <form onSubmit={props.handleSubmit}>
           <input onSubmit={props.handleSubmit} type="search" id="reviewssearch" placeholder="Search reviews"></input>
           </form>
         </div>

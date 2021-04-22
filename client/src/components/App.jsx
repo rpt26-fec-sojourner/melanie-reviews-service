@@ -52,10 +52,11 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      // use this URL when committing
+      ////// use this URL when committing for deployment //////
       // url: `http://3.21.252.90:1969/reviews/${property}`,
-      // use this URL to play locally
+      ////// use this URL to play locally //////
       url: `http://localhost:1969/reviews/${property}`,
+      ////// this URL may have another purpose? //////
       // url: `${url}:1969/reviews/${property}`,
       success:(data)=>{
         this.getAPIaverage(this.state.property);
@@ -72,10 +73,11 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      // use this URL when committing
+      ////// use this URL when committing for deployment //////
       // url: `http://3.21.252.90:1969/average/${property}`,
-      // use this URL when playing locally
+      ////// use this URL when playing locally //////
       url: `http://localhost:1969/average/${property}`,
+      ////// this URL may have another purpose? //////
       // url: `${url}:1969/average/${property}`,
       success:(data)=>{
         this.setState({
@@ -90,10 +92,11 @@ class App extends React.Component {
     var url = this.getURL();
     $.ajax({
       type: "GET",
-      // use this URL when committing
+      ////// use this URL when committing for deployment //////
       // url: `http://3.21.252.90:1969/stars/${property}`,
-      // use this URL when playing locally
+      ////// use this URL when playing locally //////
       url: `http://localhost:1969/stars/${property}`,
+      ////// this URL may have another purpose? //////
       // url: `${url}:1969/stars/${property}`,
       success:(data)=>{
         this.setState({
@@ -114,10 +117,12 @@ class App extends React.Component {
     });
   }
 
+  // for 'see all reviews' button
   handleClick() {
     this.toggleAllReviews();
   }
 
+  // for search bar
   handleSubmit(e) {
     e.preventDefault();
     console.log('searched', e.target);
@@ -128,7 +133,8 @@ class App extends React.Component {
       <div className={styles.reviewsservice}>
         <div id="reviewheader" className={styles.test}>
           <DisplayHeader
-            handlesubmit={this.handleSubmit}
+          // Unresolved bug: handleSubmit is not being passed as a prop. Neither is the 'test' prop. Other props are passing as normal. Anyone who finds whatever typo is breaking this, please share!
+            handleSubmit={this.handleSubmit}
             test={'this is a test'}
             property={this.state.property}
             totalAverage={this.state.totalAverage}

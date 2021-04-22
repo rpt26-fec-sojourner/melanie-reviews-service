@@ -10,7 +10,6 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .content_box {
   min-height: 600px;
   margin: 30px;
@@ -26,13 +25,11 @@
   color: #222323;
   float: left;
   font-size: 24px;
-  /* font-weight: bold; */
 }
 
 .close:hover,
 .close:focus {
   background: #f7f7f7;
-  /* color: black; */
   text-decoration: none;
   cursor: pointer;
 }
